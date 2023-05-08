@@ -1,6 +1,5 @@
 using UnityEngine;
 using TTRPG.Data;
-using TTRPG.Other;
 using TTRPG.Utility;
 
 namespace TTRPG.Managers
@@ -21,8 +20,9 @@ namespace TTRPG.Managers
         private void Initialization()
         {
             var character = new Character();
-            character.character_name = "0";
-            var json = JsonUtility.ToJson(character);
+            character.player_name = "player";
+            character.character_name = "character";
+            character.character_level = 1;
             CharacterUtility.SaveJsonFile(character, PathList.CharacterSheetFolder);
         }
         #endregion Methods
