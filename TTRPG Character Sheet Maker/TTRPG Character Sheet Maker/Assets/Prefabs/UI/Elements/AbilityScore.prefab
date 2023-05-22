@@ -195,6 +195,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1481982772370890690}
     m_Modifications:
+    - target: {fileID: 245984983435499932, guid: 245de9b4dedd3e541ac7234342e52869, type: 3}
+      propertyPath: m_CaretWidth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 245984983435499932, guid: 245de9b4dedd3e541ac7234342e52869, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 245984983435499932, guid: 245de9b4dedd3e541ac7234342e52869, type: 3}
+      propertyPath: m_ContentType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 245984983435499932, guid: 245de9b4dedd3e541ac7234342e52869, type: 3}
+      propertyPath: m_KeyboardType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 245984983435499932, guid: 245de9b4dedd3e541ac7234342e52869, type: 3}
+      propertyPath: m_CharacterValidation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 245984983965012828, guid: 245de9b4dedd3e541ac7234342e52869, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 245984984357010595, guid: 245de9b4dedd3e541ac7234342e52869, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 245984985347059223, guid: 245de9b4dedd3e541ac7234342e52869, type: 3}
       propertyPath: m_Name
       value: ScoreField
