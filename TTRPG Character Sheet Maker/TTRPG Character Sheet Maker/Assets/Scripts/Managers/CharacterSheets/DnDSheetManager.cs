@@ -11,6 +11,7 @@ namespace TTRPG.Managers
         [SerializeField] protected TMP_InputField classField;
         [SerializeField] protected TMP_InputField raceField;
         [SerializeField] protected AbilityScoresDnDManager abilityScores;
+        [SerializeField] protected FeatsManager feats;
         #endregion Fields & Properties
 
         #region Methods
@@ -21,6 +22,7 @@ namespace TTRPG.Managers
             classField.SetTextWithoutNotify(currentCharacter.character_class);
             raceField.SetTextWithoutNotify(currentCharacter.race);
             abilityScores.SetAbilityScores(currentCharacter.ability_scores);
+            feats.SetFeats(currentCharacter.feats);
         }
         #endregion Methods
     }
