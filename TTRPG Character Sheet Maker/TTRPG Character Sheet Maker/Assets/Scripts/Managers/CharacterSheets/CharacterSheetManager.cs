@@ -6,14 +6,15 @@ namespace TTRPG.Managers
 {
     public class CharacterSheetManager : MonoBehaviour
     {
+        #region Fields & Properties
         public Character CharacterInfo;
 
-        #region Fields & Properties
-        [SerializeField] private TMP_InputField playerNameField;
-        [SerializeField] private TMP_InputField charNameField;
-        [SerializeField] private TMP_InputField charLevelField;
+        [SerializeField] protected TMP_InputField playerNameField;
+        [SerializeField] protected TMP_InputField charNameField;
+        [SerializeField] protected TMP_InputField charLevelField;
         #endregion Fields & Properties
 
+        #region Methods
         public virtual void SetCharacterInfo(Character character)
         {
             CharacterInfo = character;
@@ -21,5 +22,6 @@ namespace TTRPG.Managers
             charNameField.SetTextWithoutNotify(CharacterInfo.character_name);
             charLevelField.SetTextWithoutNotify(CharacterInfo.character_level.ToString());
         }
+        #endregion Methods
     }
 }
