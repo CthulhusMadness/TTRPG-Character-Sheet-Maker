@@ -1,11 +1,12 @@
 using UnityEngine;
+using TTRPG.UI;
 using TTRPG.Data;
 using TTRPG.Other;
 using TTRPG.Utility;
 
 namespace TTRPG.Managers
 {
-    public class MainManager : MonoBehaviour
+    public class MainManager : Singleton<MainManager>
     {
         #region Fields & Properties
         [SerializeField] private Context context;
@@ -34,6 +35,9 @@ namespace TTRPG.Managers
             CharacterUtility.SaveJsonFile(character, PathList.CharacterSheetFolder);
             return character;
         }
+
+        public T GetUIManager<T>() where T : UIManager
+            => (T)context.UIManager;
         #endregion Methods
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -13,6 +14,8 @@ namespace TTRPG.UI
         [SerializeField] private TMP_Text title;
         [SerializeField] private TMP_Text subtitle;
         [SerializeField] private Button button;
+
+        public event Action<FeatCard> OnButtonClicked;
         #endregion Fields & Properties
 
         #region UnityCallbacks
@@ -28,7 +31,7 @@ namespace TTRPG.UI
             subtitle.SetText(Value.feat_source);
         }
 
-        private void OnButtonClick() {}
+        private void OnButtonClick() => OnButtonClicked?.Invoke(this);
         #endregion Methods
     }
 }
