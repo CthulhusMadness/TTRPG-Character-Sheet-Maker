@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using TTRPG.Data;
 using UnityEngine;
+using TTRPG.Data;
+using TTRPG.Managers;
 
 namespace TTRPG.UI
 {
@@ -16,6 +15,8 @@ namespace TTRPG.UI
             {
                 var card = Instantiate(featCardPrefab, cardsParent);
                 card.Initialize(feat);
+                var uiManager = MainManager.Instance.GetUIManager<UIDnDManager>();
+                card.OnButtonClicked += uiManager.PanelFeatInfo.Initialize;
             }
         }
     }
