@@ -5,7 +5,7 @@ using TTRPG.Utility;
 
 namespace TTRPG.Managers
 {
-    public class MainManager : MonoBehaviour
+    public class MainManager : Singleton<MainManager>
     {
         #region Fields & Properties
         [SerializeField] private Context context;
