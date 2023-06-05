@@ -1,50 +1,52 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TTRPG.UI;
 using TTRPG.Data;
 
 public class FeatInfoPanel : MonoBehaviour
 {
     #region Fields
-    public Feat Info;
+    public FeatCard Card;
 
     [SerializeField] private TMP_InputField titleField;
     [SerializeField] private TMP_InputField featSourceField;
     [SerializeField] private TMP_InputField descriptionField;
     [SerializeField] private Button backButton;
-    [SerializeField] private Button editButton;
     [SerializeField] private Button saveButton;
 
-    private bool isEditing;
+    private Feat info;
     #endregion Fields
 
     #region UnityCallbacks
-    private void OnEnable() => isEditing = false;
-
     private void Start()
     {
+        titleField.onValueChanged.AddListener(OnValueChanged);
+        featSourceField.onValueChanged.AddListener(OnValueChanged);
+        descriptionField.onValueChanged.AddListener(OnValueChanged);
         backButton.onClick.AddListener(OnBackButtonClick);
-        editButton.onClick.AddListener(OnEditButtonClick);
         saveButton.onClick.AddListener(OnSaveButtonClick);
     }
 
     private void OnDestroy()
     {
+        titleField.onValueChanged.RemoveListener(OnValueChanged);
+        featSourceField.onValueChanged.RemoveListener(OnValueChanged);
+        descriptionField.onValueChanged.RemoveListener(OnValueChanged);
         backButton.onClick.RemoveListener(OnBackButtonClick);
-        editButton.onClick.RemoveListener(OnEditButtonClick);
         saveButton.onClick.RemoveListener(OnSaveButtonClick);
     }
     #endregion UnityCallbacks
 
     #region Methods
-    public void Initialize(Feat feat)
+    public void Initialize(FeatCard card)
     {
-        Info = feat;
-        SetFieldsText(Info.title, Info.feat_source, Info.description);
-        SetFieldsInteractable(false);
+        Card = card;
+        info = card.Value;
+        SetFieldsText(info.title, info.feat_source, info.description);
         backButton.gameObject.SetActive(true);
-        editButton.gameObject.SetActive(true);
         saveButton.gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 
     public void SetFieldsText(string title, string featSource, string description)
@@ -54,40 +56,26 @@ public class FeatInfoPanel : MonoBehaviour
         descriptionField.SetTextWithoutNotify(description);
     }
 
-    public void SetFieldsInteractable(bool isInteractable)
+    private void SaveChanges()
     {
-        titleField.interactable = isInteractable;
-        featSourceField.interactable = isInteractable;
-        descriptionField.interactable = isInteractable;
+        info.title = titleField.text;
+        info.feat_source = featSourceField.text;
+        info.description = descriptionField.text;
     }
 
-    private void OnEditingChange(bool isEditing)
+    private void OnValueChanged(string value)
     {
-        isEditing = !isEditing;
-        SetFieldsInteractable(isEditing);
-        editButton.gameObject.SetActive(!isEditing);
-        saveButton.gameObject.SetActive(isEditing);
-    }
-
-    #region Buttons
-    private void OnBackButtonClick()
-    {
-        if (isEditing)
-        {
-            SetFieldsText(Info.title, Info.feat_source, Info.description);
-            OnEditingChange(false);
-        }
+        if (string.IsNullOrWhiteSpace(titleField.text))
+            saveButton.gameObject.SetActive(false);
         else
-            gameObject.SetActive(false);
+            saveButton.gameObject.SetActive(true);
     }
-    private void OnEditButtonClick() => OnEditingChange(true);
+    private void OnBackButtonClick() => gameObject.SetActive(false);
     private void OnSaveButtonClick()
     {
-        OnEditingChange(false);
-        Info.title = titleField.text;
-        Info.feat_source = featSourceField.text;
-        Info.description = descriptionField.text;
+        SaveChanges();
+        Card.Initialize(info);
+        gameObject.SetActive(false);
     }
-    #endregion Buttons
     #endregion Methods
 }
