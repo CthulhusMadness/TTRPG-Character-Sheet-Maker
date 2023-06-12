@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using TTRPG.Data;
-using TTRPG.UI;
+using TTRPG.UI.Panels;
 
 namespace TTRPG.Managers
 {
@@ -10,8 +10,9 @@ namespace TTRPG.Managers
         #region Fields & Properties
         [SerializeField] protected TMP_InputField classField;
         [SerializeField] protected TMP_InputField raceField;
-        [SerializeField] protected AbilityScoresDnDManager abilityScores;
-        [SerializeField] protected FeatsManager feats;
+        [SerializeField] protected AbilityScoresDnDPanel abilityScores;
+        [SerializeField] protected FeatsPanel feats;
+        [SerializeField] protected HPPanel hpPanel;
         #endregion Fields & Properties
 
         #region Methods
