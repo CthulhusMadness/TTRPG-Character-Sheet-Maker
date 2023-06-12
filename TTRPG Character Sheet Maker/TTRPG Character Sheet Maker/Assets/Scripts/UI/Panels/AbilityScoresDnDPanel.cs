@@ -1,10 +1,10 @@
-﻿using TTRPG.Data;
+﻿using UnityEngine;
+using TTRPG.Data;
 using TTRPG.UI.Fields;
-using UnityEngine;
 
-namespace TTRPG.UI
+namespace TTRPG.UI.Panels
 {
-    public class AbilityScoresDnDManager : AbilityScoresManager
+    public class AbilityScoresDnDPanel : AbilityScoresPanel
     {
         #region Fields
         [SerializeField] protected AbilityScoreDnDField strength;

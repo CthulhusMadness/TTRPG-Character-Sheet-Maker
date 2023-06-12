@@ -2,9 +2,9 @@ using UnityEngine;
 using TTRPG.Data;
 using TTRPG.Managers;
 
-namespace TTRPG.UI
+namespace TTRPG.UI.Panels
 {
-    public class FeatsManager : MonoBehaviour
+    public class FeatsPanel : MonoBehaviour
     {
         [SerializeField] private FeatCard featCardPrefab;
         [SerializeField] private Transform cardsParent;

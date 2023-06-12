@@ -1,9 +1,9 @@
 using UnityEngine;
 using TTRPG.Data;
 
-namespace TTRPG.UI
+namespace TTRPG.UI.Panels
 {
-    public class AbilityScoresManager : MonoBehaviour
+    public class AbilityScoresPanel : MonoBehaviour
     {
         public virtual void SetAbilityScores(AbilityScores scores) { }
     }
