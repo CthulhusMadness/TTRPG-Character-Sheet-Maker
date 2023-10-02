@@ -1,5 +1,6 @@
-using TMPro;
 using UnityEngine;
+using TMPro;
+using TTRPG.Data;
 
 namespace TTRPG.UI.Panels
 {
@@ -13,7 +14,10 @@ namespace TTRPG.UI.Panels
         #endregion Fields
 
         #region Methods
-        public void Initalize(int currentHP, int maxHP, int? temporaryHP = null, string hitDice = null)
+        public void Initialize(VitalsDnD vitals)
+            => Initialize(vitals.current_hp, vitals.max_hp, vitals.temporary_hp, vitals.hit_dice);
+
+        public void Initialize(int currentHP, int maxHP, int? temporaryHP = null, string hitDice = null)
         {
             currentHPField.SetTextWithoutNotify(currentHP.ToString());
             maxHPField.SetTextWithoutNotify(maxHP.ToString());
