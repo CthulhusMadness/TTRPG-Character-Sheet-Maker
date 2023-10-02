@@ -1,4 +1,6 @@
-﻿namespace TTRPG.UI
+﻿using TTRPG.UI.Panels;
+
+namespace TTRPG.UI
 {
     public class UIDnDManager : UIManager
     {
