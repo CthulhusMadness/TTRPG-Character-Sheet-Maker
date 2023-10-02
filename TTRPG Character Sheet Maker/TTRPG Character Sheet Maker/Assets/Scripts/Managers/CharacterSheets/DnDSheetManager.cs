@@ -24,6 +24,7 @@ namespace TTRPG.Managers
             raceField.SetTextWithoutNotify(currentCharacter.race);
             abilityScores.SetAbilityScores(currentCharacter.ability_scores);
             feats.SetFeats(currentCharacter.feats);
+            hpPanel.Initialize(currentCharacter.vitals);
         }
         #endregion Methods
     }
